@@ -117,29 +117,31 @@ let o1 = {
     d: "2"
  }
 let k = Object.keys(o1);
-let j = Object.values(o1);
+let val = Object.values(o1);
 
-function invert(k, j){
+function invert(k, ){
 
    let obj = {};
    
-for (let key in j) {
-
-obj[j[key]] = []
+for (let key in val) {
+    let count = val.filter(x => x === val[key]).length;
+    if(count > 1) {
+        obj[val[key]] = []
+    } 
 
 }
 
-for(let key in j){
+for(let key in val){
 
-if (obj[j[key]]) {
+if (obj[val[key]]) {
 
-obj[j[key]].push(k[key]);
+obj[val[key]].push(k[key]);
 
 }
 
 else{
 
-obj[j[key]] = k[key];
+obj[val[key]] = k[key];
 
 }
 
@@ -149,25 +151,4 @@ return obj;
 
 }
 
-console.log(invert(k, j));
-
-
-/*
-function invert (obj) {
-    let obj1 = {};
-      
-    for (let key in obj) {
-     obj1[obj[key]] = key;
-        
-    }
-    return obj1;
-  }
-    
-  let o1 = {
-     a: "1",
-     b: "2",
-     c: "2"
-  }
-  
-  console.log(o1 = invert(o1));
-  */
+console.log(invert(k, val));
