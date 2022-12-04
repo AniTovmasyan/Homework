@@ -1,14 +1,14 @@
 //Task 1
 //Given two objects. Write a function that performs shallow compare.
-function shallowCompare(a, b) {
-  let key1 = Object.keys(a);
-  let key2 = Object.keys(b);
+function shallowCompare(obj1, obj2) {
+  let key1 = Object.keys(obj1);
+  let key2 = Object.keys(obj2);
   if (key1.length !== key2.length) {
     return false;
   }
 
-  for (let key in a) {
-    if (a[key] !== b[key]) {
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
       return false;
     }
   }
@@ -29,7 +29,9 @@ function isogram(str) {
 
   arr.sort();
   for (let i = 0; i < str.length - 1; i++) {
-    if (arr[i] == arr[i + 1]) return false;
+    if (arr[i] == arr[i + 1]) {
+      return false;
+    }
   }
   return true;
 }
